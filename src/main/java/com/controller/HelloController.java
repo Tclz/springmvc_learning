@@ -10,7 +10,7 @@ public class HelloController {
     @RequestMapping(path = "/hello")
     public String sayHello(){
         System.out.printf("Hello,springMVC!");
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
 
     /**
@@ -26,6 +26,6 @@ public class HelloController {
     @RequestMapping(path = "/testRequestMapping",method = RequestMethod.GET,headers = {"Accept"})
     public String testRequestMapping(){
         System.out.println("测试requestMapping..");
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
 }

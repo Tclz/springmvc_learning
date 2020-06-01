@@ -18,7 +18,7 @@ public class ParamController {
         System.out.println("参数绑定..");
         System.out.println("用户名："+username);
         System.out.println("密码"+password);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
 
     /**
@@ -31,14 +31,14 @@ public class ParamController {
     public String saveAccount(Account account){
         System.out.println("数据封装.. ");
         System.out.println(String.valueOf(account));
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
 
     @RequestMapping("/saveUser")
     public String saveUser(User user){
         System.out.println("自定义类型转换器");
         System.out.println(String.valueOf(user));
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
 
     // 获取Servlet原生的API
@@ -49,6 +49,6 @@ public class ParamController {
         System.out.println(session);
         ServletContext context = session.getServletContext();
         System.out.println(context);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
 }

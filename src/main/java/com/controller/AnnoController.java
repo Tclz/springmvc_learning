@@ -26,7 +26,7 @@ public class AnnoController {
     public String testRequestParam(@RequestParam(name = "name") String username){
         System.out.println("测试常用注解");
         System.out.println(username);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
     /**
      * 获取到请求体的内容
@@ -34,7 +34,7 @@ public class AnnoController {
     @RequestMapping("/testRequestBody")
     public String testRequestBody(@RequestBody String body){
         System.out.println(body);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
     /**
      * PathVariable注解
@@ -42,7 +42,7 @@ public class AnnoController {
     @RequestMapping("/testPathVariable/{sid}")
     public String testPathVariable(@PathVariable(name = "sid")String id){
         System.out.println(id);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
     /**
      * 获取请求头信息
@@ -50,7 +50,7 @@ public class AnnoController {
     @RequestMapping("/testRequestHeader")
     public String testRequestHeader(@RequestHeader(value = "Accept") String header){
         System.out.println(header);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
     /**
      * 获取Cookie值
@@ -58,7 +58,7 @@ public class AnnoController {
     @RequestMapping("/testCookieValue")
     public String  testCookieValue(@CookieValue(value = "JSESSIONID") String cookieValue){
         System.out.println(cookieValue);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
 
 
@@ -98,7 +98,7 @@ public class AnnoController {
     public String  testModelAttribute(@ModelAttribute("abc") User user){
         System.out.println("testModelAttribute执行..");
         System.out.println(user);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
     }
     @ModelAttribute
     public void showUser(String hobby, Map<String,User>map){
@@ -122,7 +122,7 @@ public class AnnoController {
         System.out.println("testSessionAttributes执行..");
         // 底层会存到request域中
         model.addAttribute("msg","niubi");
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
 
     }
     // 取值
@@ -132,7 +132,7 @@ public class AnnoController {
         // 底层会存到request域中
         String msg = (String) modelMap.getAttribute("msg");
         System.out.println(msg);
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
 
     }
     // 删去属性
@@ -140,7 +140,7 @@ public class AnnoController {
     public String delSessionAttributes(SessionStatus status){
         System.out.println("delSessionAttributes执行..");
         status.setComplete();
-        return "/WEB-INF/pages/success.jsp";
+        return "success";
 
     }
 }
