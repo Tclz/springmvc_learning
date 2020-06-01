@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 参数绑定
+ */
 @Controller
 @RequestMapping("/param")
 public class ParamController {

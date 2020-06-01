@@ -39,6 +39,38 @@
     <a href="anno/getSessionAttributes">getSessionAttributes</a><br>
     <a href="anno/delSessionAttributes">delSessionAttributes</a><br>
 
+    <!--文件上传 传统方式 -->
+    <p>传统方式文件上传</p>
+    <form action="user/fileUpLoad1" method="post" enctype="multipart/form-data">
+        选择文件:<input type="file" name="upload"><br>
+        <input type="submit" value="上传">
+    </form>
+
+    <!-- 文件上传 springMVC方式-->
+    <p>SpringMVC文件上传</p>
+    <form action="user/fileUpLoad2" method="post" enctype="multipart/form-data">
+        选择文件:<input type="file" name="uploadFile"><br>
+        <input type="submit" value="上传">
+    </form>
+
+    <!-- 跨服务器文件上传 springMVC方式-->
+    <p>跨服务器文件上传</p>
+    <form action="user/fileupload3" method="post" enctype="multipart/form-data">
+        选择文件:<input type="file" name="upload3"><br>
+        <input type="submit" value="上传">
+    </form>
+
+    <a href="user/testInterceptor">拦截器</a><br>
+
+    <a href="person/findAll">查询所有人员信息</a><br>
+
+    <form action="person/save" method="post">
+        <input type="text" name="name">
+        <input type="text" name="money">
+        <input type="submit" name="保存">
+    </form>
+
+
 </head>
 <body>
 

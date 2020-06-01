@@ -11,8 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h3>入门成功</h3>
-     ${ msg }
-     ${sessionScope}
+    <h3>执行成功</h3>
+    ${user.hobby}
+    ${user.age}
 </body>
 </html>

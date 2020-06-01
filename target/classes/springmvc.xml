@@ -10,8 +10,10 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--开启注解扫描-->
-    <context:component-scan base-package="com"></context:component-scan>
+    <!--开启springMVC注解扫描-->
+    <context:component-scan base-package="com">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!--视图解析器-->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,4 +34,28 @@
         </property>
     </bean>
 
+    <!--告知前端控制器哪些静态资源不拦截-->
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+    <!--
+     <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>  样式
+      <mvc:resources mapping="/images/**" location="/images/"></mvc:resources>  图片
+    -->
+
+    <!-- 配置文件解析器  用于SpringMVC文件上传 貌似文件解析器与普通上传方法不能共存-->
+    <!--有特定的id 不可随意更改-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104857600"/>
+    </bean>
+
+    <mvc:interceptors>
+        <!--配置拦截器1-->
+        <mvc:interceptor>
+            <!--要拦截的具体方法-->
+            <mvc:mapping path="/user/*"/>
+            <!-- 配置拦截器对象-->
+            <bean class="com.interceptor.MyInterceptor"></bean>
+        </mvc:interceptor>
+
+        <!--配置拦截器2-->
+    </mvc:interceptors>
 </beans>
